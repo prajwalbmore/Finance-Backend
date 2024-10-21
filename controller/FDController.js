@@ -26,7 +26,7 @@ const getAllFD = async(req,res) => {
             return res.status(404).send({msg:"FD's not Found"})
         }
 
-        return res.status(200).send({FD:FD})
+        return res.status(200).send(FD)
     } catch (error) {
         return res.status(500).send(error);
     }

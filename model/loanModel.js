@@ -23,8 +23,7 @@ const loanSchema = new mongoose.Schema({
         default: Date.now,
     },
     installment :{
-        type: Number,
-        required : true
+        type: Number
     }
 })
 
