@@ -7,7 +7,7 @@ const loanSchema = new mongoose.Schema({
         required : true
     },
     amount :{
-        type: Number,
+        type: mongoose.Schema.Types.Decimal128,
         required : true
     },
     interest :{
