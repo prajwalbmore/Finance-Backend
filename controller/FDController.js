@@ -98,7 +98,7 @@ const deleteFD = async(req,res) =>{
 
 const getFDByMemberID = async(req,res) =>{
     try {
-        const {memberId} = req.body;
+        const memberId = req.params.id;
         const FD = await FDModel.find({memberId:memberId})
         if(!FD){
             return res.status(404).send({msg:"FD not found"});

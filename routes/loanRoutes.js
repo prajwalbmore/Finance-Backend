@@ -12,8 +12,8 @@ router.get('/getAllLoan',auth,loanController.getAllLoan);
 router.get('/getLoanById/:id',auth,loanController.getLoanById)
 //http://localhost:7000/api/loan/getLoanById/:id
 
-router.get('/getLoanByMemberID',auth,loanController.getLoanByMemberID)
-//http://localhost:7000/api/loan/getLoanByMemberID
+router.get('/getLoanByMemberID/:id',auth,loanController.getLoanByMemberID)
+//http://localhost:7000/api/loan/getLoanByMemberID/
 
 router.delete('/deleteLoan/:id',auth,loanController.deleteLoan)
 //http://localhost:7000/api/loan/deleteLoan/:id

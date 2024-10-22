@@ -12,8 +12,8 @@ router.get('/getAllFD',auth,FDController.getAllFD);
 router.get('/getFDById/:id',auth,FDController.getFDById)
 //http://localhost:7000/api/FD/getFDById/:id
 
-router.get('/getFDByMemberID',auth,FDController.getFDByMemberID)
-//http://localhost:7000/api/FD/getFDByMemberID
+router.get('/getFDByMemberID/:id',auth,FDController.getFDByMemberID)
+//http://localhost:7000/api/FD/getFDByMemberID/
 
 router.delete('/deleteFD/:id',auth,FDController.deleteFD)
 //http://localhost:7000/api/FD/deleteFD/:id

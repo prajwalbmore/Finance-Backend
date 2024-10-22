@@ -98,7 +98,7 @@ const deleteLoan = async(req,res) =>{
 
 const getLoanByMemberID = async(req,res) =>{
     try {
-        const {memberId} = req.body;
+        const memberId = req.params.id;
         const Loan = await loanModel.find({memberId:memberId})
         if(!Loan){
             return res.status(404).send({msg:"Loan not found"});
