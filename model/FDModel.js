@@ -7,7 +7,7 @@ const FDSchema = new mongoose.Schema({
         required : true
     },
     amount :{
-        type: Number,
+        type: mongoose.Schema.Types.Decimal128,
         required : true
     },
     interest :{
@@ -22,7 +22,21 @@ const FDSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    
+    status:{
+        type: Boolean,
+        default: false
+    },
+    isPreMature:{
+        type: Boolean,
+        default: false
+    },
+    amountAfterMaturity:{
+        type: mongoose.Schema.Types.Decimal128,
+    },
+    amountBeforeMaturity:{
+        type: mongoose.Schema.Types.Decimal128,
+        default: null
+    }
 
 })
 

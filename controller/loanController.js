@@ -1,23 +1,37 @@
 const loanModel = require("../model/loanModel");
 
 const createLoan = async(req,res) => {
-    const {memberId,amount,interest,duration,installment} = req.body
+    const { memberId, amount, interest, duration } = req.body;
+
+    const amountNum = parseFloat(amount);
+    const interestNum = parseFloat(interest);
+    const durationNum = parseInt(duration);
+
     try {
+        const ratePerMonth = interestNum / 12;
+
+        const SI = (amountNum * ratePerMonth * durationNum) / 100;
+
+        const amountAfterMaturity = parseFloat((SI + amountNum).toFixed(2));
+
         const newLoan = new loanModel({
             memberId,
-            amount,
-            interest,
-            duration,
-            installment,
-            startDate: Date.now(),
-        })
+            amount: amountNum,
+            interest: interestNum,
+            duration: durationNum,
+            startDate: Date.now(),  
+            amountAfterMaturity,
+        });
 
         await newLoan.save();
-        return res.status(200).send({msg:"Loan Created Sucessfully"})
+
+        return res.status(200).send({ msg: "Loan Created Successfully" });
+
     } catch (error) {
-        return res.status(500).send(error);
+        console.error(error);  
+        return res.status(500).send({ msg: "Internal Server Error", error: error.message });
     }
-}
+};
 
 const getAllLoan = async(req,res) => {
     try {

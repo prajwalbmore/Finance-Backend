@@ -24,6 +24,21 @@ const loanSchema = new mongoose.Schema({
     },
     installment :{
         type: Number
+    },
+    status:{
+        type: Boolean,
+        default: false
+    },
+    isPreMature:{
+        type: Boolean,
+        default: false
+    },
+    amountAfterMaturity:{
+        type: mongoose.Schema.Types.Decimal128,
+    },
+    amountBeforeMaturity:{
+        type: mongoose.Schema.Types.Decimal128,
+        default: null
     }
 })
 
